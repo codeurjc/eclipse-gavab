@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    name="setup"
+    label="Setup">
+  <stream name="master">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        id=""
+        label="">
+      <requirement
+          name="org.eclipse.cdt.feature.group"/>
+      <requirement
+          name="org.eclipse.dltk.ruby.feature.group"/>
+      <requirement
+          name="EclipseFPFeature.feature.group"/>
+      <requirement
+          name="es.sidelab.pascaline.feature.group"/>
+      <requirement
+          name="IDEConfiguratorFeature.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/releases/luna"/>
+      <repository
+          url="http://download.eclipse.org/tools/cdt/releases/8.5/"/>
+      <repository
+          url="https://dl.bintray.com/sidelab-urjc/eclipse-fp"/>
+      <repository
+          url="https://dl.bintray.com/sidelab-urjc/pascaline"/>
+      <repository
+          url="https://dl.bintray.com/sidelab-urjc/ide-configurator"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:ResourceCopyTask"
+        sourceURL="file:<TOOLS_PATH>mingw.zip"
+        targetURL="${installation.location|uri}/mingw.zip"/>
+    <setupTask
+        xsi:type="setup:ResourceCopyTask"
+        sourceURL="file:<TOOLS_PATH>ruby.zip"
+        targetURL="${installation.location|uri}/ruby.zip"/>
+    <setupTask
+        xsi:type="setup:ResourceCopyTask"
+        sourceURL="file:<TOOLS_PATH>jre.zip"
+        targetURL="${installation.location|uri}/jre.zip"/>
+    <setupTask
+        xsi:type="setup:ResourceCopyTask"
+        sourceURL="file:<TOOLS_PATH>ghc.zip"
+        targetURL="${installation.location|uri}/ghc.zip"/>
+    <setupTask
+        xsi:type="setup:ResourceCopyTask"
+        sourceURL="file:<TOOLS_PATH>fpc.zip"
+        targetURL="${installation.location|uri}/fpc.zip"/>
+  </stream>
+  <logicalProjectContainer
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
+  <description>Setup provides multiple plugins ready to work</description>
+</setup:Project>
